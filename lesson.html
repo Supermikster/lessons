@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table class="calendar">
+    </table>
+    <script>
+        function hello1(){
+            return 'Привет, JavaScript';
+        }
+        console.log(hello1());
+
+        function hello2(name){
+            // console.log('Привет, ' + (name == undefined ? 'Гость' : name));
+            console.log('Привет, ' + (name || 'Гость'));
+        }
+
+        hello2('Василий');
+        hello2();
+
+        function mul(n, m){
+            return n * m;
+        }
+
+        console.log(mul(5, 10));
+
+        // function repeat(str, n) {
+        //     if(str == undefined){
+        //         str = '';
+        //     }
+        //     if(n == undefined){
+        //         n = 2;
+        //     }
+        //     if(n <= 1) {
+        //         return str;
+        //     } else {
+        //         return repeat(str, --n) + str;
+        //     }
+        // }
+
+        function repeat(str, n) {
+            if (str == undefined) str = '';
+            if (n == undefined) n = 2;
+            return n <= 1 ? str : repeat(str, --n) + str 
+        }
+
+        console.log(repeat());
+
+        function rgb(r, g, b) {
+            if (r == undefined) r = 0;
+            if (g == undefined) g = 0;
+            if (b == undefined) b = 0;
+            return 'rgb(' + r + ', ' + g + ', ' + b + ')' ;
+        }
+
+        console.log( rgb(5, 20, 100));
+
+        function avg(){
+            var avg = 0;
+            var count = 0;
+            for (let i = 0; i < arguments.length; i++) {
+                if(typeof arguments[i] == 'number'){
+                    count++;
+                    avg += arguments[i];
+                }
+            }
+            console.log(count > 0 ? avg / count : 0);
+        }
+
+        avg(5, 5, 5, 5, 5);
+
+        // function wil(){
+        //     var ost = 0;
+        //     for(var i = 45; i <= 670; i++) {
+        //         ost = i % 10;
+        //         if (ost == 0) {
+        //             console.log(i);
+        //         }
+        //     }
+
+        // }
+
+        // wil();
+
+        function m(a, b) {
+            function mul(n, m) {
+                return n * m;
+            }
+            if (a == undefined) {
+                a = 1;
+            }
+            if (b == undefined) {
+                b = 1;
+            }
+            return mul(a, b);
+        }
+
+        console.log(m(5, 10));
+
+        // var o = function o(n, m) { 
+        //     return n * m;
+        // }
+        function operation(m, n, o = function o(n, m) {
+             return n * m;
+            }) {
+            return o(m, n);
+        }
+
+        console.log(operation(5, 20));
+
+        function addN(n) {
+            function sum(m) {
+                m = 5;
+                return m + n;
+            }
+            return sum();
+        }
+
+        console.log(addN(10));
+
+        // function words(n) {
+        //     if (n == undefined) {n = 0}
+        //     var d = n % 10;
+        //     console.log(d);
+        //     switch(d) {
+        //         case 1: 
+        //             console.log(n + ': товар');
+        //             break;
+        //         case 2:
+        //             console.log(n + ': товарa');
+        //             break;
+        //         case 3:
+        //             console.log(n + ': товарa');
+        //             break;
+        //         case 4:
+        //             console.log(n + ': товарa');
+        //             break;
+        //         default:
+        //             console.log(n + ': товаров');
+        //             break;
+        //     }
+        // }
+        
+        function words(n) {
+            if (n == undefined) {n = 0}
+            var d = n % 10;
+            console.log(d);
+            if (d == 1) {
+                console.log(n + ': товар');
+            } if (d >= 2 && d <= 4) {
+                console.log(n + ': товарa');
+            } else {
+                console.log(n + ': товаров');
+            }
+        }
+
+        words();
+
+        function mchoise() {
+            n = 5;
+            if (n == undefined) {n = 0}
+            switch(n) {
+                case 0: 
+                    console.log('Ноль');
+                    break;
+                case 1: 
+                    console.log('Один');
+                    break;
+                case 2:
+                    console.log('Два');
+                    break;
+                case 3:
+                    console.log('Три');
+                    break;
+                case 4:
+                    console.log('Четыре');
+                    break;
+                case 5: 
+                    console.log('Пять');
+                    break;
+                case 6:
+                    console.log('Шесть');
+                    break;
+                case 7:
+                    console.log('Семь');
+                    break;
+                case 8:
+                    console.log('Восемь');
+                    break;
+                case 9:
+                    console.log('Девять');
+                    break;
+            }
+        }
+
+        mchoise();
+
+        function doc() {
+            for (let i = 0; i <= 9; i++) {
+                document.write("<img src='' alt='hi'/>");
+            }
+        }
+
+        doc();
+
+        function size(size, units) {
+            if (size == undefined) size = 0;
+
+            var kilo = Math.pow(2, 10);
+            var mega = Math.pow(2, 20);
+            var giga = Math.pow(2, 30);
+            switch(units) {
+                case 'Кб':
+                    var kilobites = size * kilo;
+                    console.log(kilobites);
+                    break;
+                case 'Мб':
+                    var megabites = size * mega;
+                    console.log(megabites);
+                    break;
+                case 'Гб':
+                    var gigabites = size * giga;
+                    console.log(gigabites);
+                    break;
+                default:
+                    console.log('Укажите количество, а затем Кб, Мб или Гб вы хотите найти!');
+                    break;
+            }
+        }
+
+        size(3);
+
+    </script>
+</body>
+</html>

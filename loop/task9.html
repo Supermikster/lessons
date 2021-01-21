@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function size(size, units) {
+            if (size == undefined) size = 0;
+
+            var kilo = Math.pow(2, 10);
+            var mega = Math.pow(2, 20);
+            var giga = Math.pow(2, 30);
+            switch(units) {
+                case 'Кб':
+                    var kilobites = size * kilo;
+                    console.log(kilobites);
+                    break;
+                case 'Мб':
+                    var megabites = size * mega;
+                    console.log(megabites);
+                    break;
+                case 'Гб':
+                    var gigabites = size * giga;
+                    console.log(gigabites);
+                    break;
+                default:
+                    console.log('Укажите количество, а затем Кб, Мб или Гб вы хотите найти!');
+                    break;
+            }
+        }
+
+        size(3);
+    </script>
+</body>
+</html>

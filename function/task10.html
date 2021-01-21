@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function words(n) {
+            if (n == undefined) {n = 0}
+            var d = n % 10;
+            console.log(d);
+            if (d == 1) {
+                console.log(n + ': товар');
+            } if (d >= 2 && d <= 4) {
+                console.log(n + ': товарa');
+            } else {
+                console.log(n + ': товаров');
+            }
+        }
+
+        words();
+
+        // or another version
+
+        // function words(n) {
+        //     if (n == undefined) {n = 0}
+        //     var d = n % 10;
+        //     console.log(d);
+        //     switch(d) {
+        //         case 1: 
+        //             console.log(n + ': товар');
+        //             break;
+        //         case 2:
+        //             console.log(n + ': товарa');
+        //             break;
+        //         case 3:
+        //             console.log(n + ': товарa');
+        //             break;
+        //         case 4:
+        //             console.log(n + ': товарa');
+        //             break;
+        //         default:
+        //             console.log(n + ': товаров');
+        //             break;
+        //     }
+        // }
+
+        // words();
+        
+    </script>
+</body>
+</html>

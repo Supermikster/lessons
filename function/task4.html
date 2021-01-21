@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function repeat(str, n) {
+            if (str == undefined) str = '';
+            if (n == undefined) n = 2;
+            return n <= 1 ? str : repeat(str, --n) + str 
+        }
+
+        console.log(repeat());
+    </script>
+</body>
+</html>

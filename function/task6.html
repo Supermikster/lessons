@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function avg(){
+            var avg = 0;
+            var count = 0;
+            for (let i = 0; i < arguments.length; i++) {
+                if(typeof arguments[i] == 'number'){
+                    count++;
+                    avg += arguments[i];
+                }
+            }
+        console.log(count > 0 ? avg / count : 0);
+        }
+
+        avg(5, 5, 5, 5, 5);
+    </script>
+</body>
+</html>
