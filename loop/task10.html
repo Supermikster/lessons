@@ -1,52 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link href="calendar.css" rel="stylesheet" type="text/css">
-</head>
-<body>
+    <link href="calendar.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
     <div class="calendar">
-        
-        <table id="table">
-            <caption><span>Июль</span> 2084</caption>
-        </table>
+      <table id="table">
+        <caption>
+          <span>Июль</span>
+          2084
+        </caption>
+      </table>
     </div>
     <script>
-        let table = document.querySelector('#table');
-        let n = 1;
-        let num = [];
-        num[0] = [];
-        let day = [['pn'],['ft','cr', 'cht', 'pt', 'cb', 'vs']];
+      let table = document.querySelector("#table");
+      let n = 0;
 
-        for (let i = 0; i < 1; i++) {
-            let tr = document.createElement('tr');
-	        for (let j = 0; j < 7; j++) {
-                let td = document.createElement('td');
-                num[i][j] = 1;
-                num[0][0] = 'hi';
-                console.log(num[i][j]);
-                td.innerHTML = num[0][0];
-		        tr.appendChild(td);
-	        }   
-	    table.appendChild(tr);
-        }
+      let day = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
+      let date = new Date("January 24, 2021");
+      let offset = date.getDay() - 1;
+      if (offset < 0) {
+        offset = 6;
+      }
 
-        for (let i = 0; i < 6; i++) {
-            let tr = document.createElement('tr');
-	        for (let j = 0; j < 7; j++) {
-                let td = document.createElement('td');
-                td.innerHTML = n;
-                if (n <= 31) {
-                    n++;
-                } else {
-                    break;
-                }
-		        tr.appendChild(td);
-	        }   
-	    table.appendChild(tr);
+      console.log(date);
+
+      for (let i = 0; i < 1; i++) {
+        let tr = document.createElement("tr");
+        for (let j = 0; j < 7; j++) {
+          let td = document.createElement("td");
+          td.innerHTML = day[j];
+          tr.appendChild(td);
         }
+        table.appendChild(tr);
+      }
+
+      for (let i = 0; i < 6; i++) {
+        let tr = document.createElement("tr");
+        for (let j = 0; j < 7; j++) {
+          let td = document.createElement("td");
+          if (n < 31 && offset == 0) {
+            n++;
+            td.innerHTML = n;
+          }
+          if (offset != 0) {
+            offset--;
+            console.log(offset);
+          }
+          tr.appendChild(td);
+        }
+        table.appendChild(tr);
+      }
     </script>
-</body>
+  </body>
 </html>

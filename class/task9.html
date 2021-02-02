@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Chain(a, b) {
+            this.a = 1;
+            this.b = 5;
+            // return this.a == undefined ? this.b : this.a;
+        }
+
+        Chain.prototype = function(b, c) {
+            this.b = 2;
+            this.c = 3;
+            
+            return c;
+        }
+
+        Chain.prototype = function(e) {
+            this.e = null;
+            // return this.e;
+        }
+
+        var c = new Chain(5);
+        console.log(c.c);
+
+    </script>
+</body>
+</html>

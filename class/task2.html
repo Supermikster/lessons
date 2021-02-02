@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // function Human(name, age, height) {
+      //     this.name = name;
+      //     this.age = age;
+      //     this.height = height;
+      // }
+
+      // Human.prototype.getinfo = function() {
+      //     return '<< ' + this.name + ', ' + this.age + ', ' + this.height + ' >>';
+      // }
+
+      // Human.prototype.firstName = function() {
+      //     return '<< ' + this.name + ' >>';
+      // }
+
+      class Human {
+        constructor(name, age, height) {
+          this.name = name;
+          this.age = age;
+          this.height = height;
+        }
+
+        getinfo() {
+          return (
+            "<< " + this.name + ", " + this.age + ", " + this.height + " >>"
+          );
+        }
+
+        firstName() {
+          return "<< " + this.name + " >>";
+        }
+      }
+
+      var humans = [
+        new Human("Kolya", 23, 180),
+        new Human("Dasha", 19, 170),
+        new Human("Vanya", 18, 192),
+        new Human("Petya", 45, 178),
+        new Human("Vasya", 34, 197),
+        new Human("Johny", 40, 168),
+        new Human("Kate", 37, 160),
+        new Human("Petya", 29, 200),
+        new Human("Sonya", 21, 172),
+        new Human("Zhenya", 25, 155),
+      ];
+
+      console.log(humans[1].getinfo());
+      console.log(humans[5].firstName());
+    </script>
+  </body>
+</html>

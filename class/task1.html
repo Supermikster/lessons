@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function Card(from, to) {
+      //     this.from = from;
+      //     this.to = to;
+      // }
+      // Card.prototype.show = function() {
+      //     return 'from:' + this.from + ',' + 'to:' + this.to;
+      // }
+      // var card = new Card('Moscov','Ekaterenburg');
+      // console.log(card.show());
+
+      class Card {
+        constructor(from, to) {
+          this.from = from;
+          this.to = to;
+        }
+
+        show() {
+          return "from:" + this.from + " , " + "to:" + this.to;
+        }
+      }
+
+      var card = new Card("Moscov", "Ekaterenburg");
+      console.log(card.show());
+    </script>
+</body>
+</html>

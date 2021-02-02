@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+    //   var city1 = {
+    //     name: "Lugansk",
+    //     population: 650000,
+    //   };
+
+    //   var city2 = {
+    //     name: "Perm",
+    //     population: 1000000,
+    //   };
+
+    //   city1.getName = function () {
+    //     return this.name;
+    //   };
+
+    //   city2.getName = function () {
+    //     return this.name;
+    //   };
+
+    //   city1.exportStr = function () {
+    //     return (
+    //       "<< name = " + this.name + ", popultion " + this.population + " >>"
+    //     );
+    //   };
+
+    //   city2.exportStr = function () {
+    //     return (
+    //       "<< name = " + this.name + ", popultion " + this.population + " >>"
+    //     );
+    //   };
+
+    //   console.log(city1.getName());
+    //   console.log(city2.getName());
+    //   console.log(city1.exportStr());
+    //   console.log(city2.exportStr());
+
+      var city1 = {
+        name: "Lugansk",
+        population: 650000,
+        getName() {
+          return this.name;
+        },
+
+        exportStr() {
+          return (
+            "<< name = " + this.name + ", popultion " + this.population + " >>"
+          );
+        },
+
+        exportStr2() {
+          for (this.name in city1) {
+            return (
+              "<< name = " +
+              this.name +
+              ", popultion " +
+              this.population +
+              " >>"
+            );
+          }
+        },
+      };
+
+      console.log(city1.getName());
+      console.log(city1.exportStr());
+      console.log(city1.exportStr2());
+
+      var city2 = {
+        name: "Perm",
+        population: 1000000,
+        getName() {
+          return this.name;
+        },
+
+        exportStr() {
+          return (
+            "<< name = " + this.name + ", popultion " + this.population + " >>"
+          );
+        },
+
+        exportStr2() {
+          for (this.name in city1) {
+            return (
+              "<< name = " +
+              this.name +
+              ", popultion " +
+              this.population +
+              " >>"
+            );
+          }
+        },
+      };
+
+      console.log(city2.getName());
+      console.log(city2.exportStr());
+      console.log(city2.exportStr2());
+    </script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getObj() {
+        return this;
+      }
+
+      var city1 = {
+        name: "Lugansk",
+        population: 650000,
+        getName() {
+          return this.name;
+        },
+
+        exportStr() {
+          return (
+            "<< name = " + this.name + ", popultion " + this.population + " >>"
+          );
+        },
+
+        exportStr2() {
+          for (this.name in city1) {
+            return (
+              "<< name = " +
+              this.name +
+              ", popultion " +
+              this.population +
+              " >>"
+            );
+          }
+        },
+
+        getcity() {
+          getObj();
+        },
+      };
+
+      console.log(city1.getcity());
+
+      var city2 = {
+        name: "Perm",
+        population: 1000000,
+        getName() {
+          return this.name;
+        },
+
+        exportStr() {
+          return (
+            "<< name = " + this.name + ", popultion " + this.population + " >>"
+          );
+        },
+
+        exportStr2() {
+          for (this.name in city1) {
+            return (
+              "<< name = " +
+              this.name +
+              ", popultion " +
+              this.population +
+              " >>"
+            );
+          }
+        },
+      };
+    </script>
+  </body>
+</html>

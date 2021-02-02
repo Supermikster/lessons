@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="calendar.css" rel="stylesheet" type="text/css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="calendar">
+      <table id="table">
+        <caption></caption>
+      </table>
+    </div>
+    <!-- <table id="table" style="border: 1ps solid black;"></table> -->
+    <script>
+      // function calendar(year, month) {
+      //     var date =  new Date(year, month, 1);
+      //     var date2 = new Date(year, month +1, 1);
+      // }
+      function calendar(month, year) {
+        let table = document.querySelector("#table");
+        let n = 0;
+
+        let day = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
+        let date = new Date(year, month, 1);
+        let offset = date.getDay() - 1;
+        if (offset < 0) {
+          offset = 6;
+        }
+
+        console.log(date);
+
+        for (let i = 0; i < 1; i++) {
+          let tr = document.createElement("tr");
+          for (let j = 0; j < 7; j++) {
+            let td = document.createElement("td");
+            td.innerHTML = day[j];
+            tr.appendChild(td);
+          }
+          table.appendChild(tr);
+        }
+
+        for (let i = 0; i < 6; i++) {
+          let tr = document.createElement("tr");
+          for (let j = 0; j < 7; j++) {
+            let td = document.createElement("td");
+            if (n < 31 && offset == 0) {
+              n++;
+              td.innerHTML = n;
+            }
+            if (offset != 0) {
+              offset--;
+              console.log(offset);
+            }
+            tr.appendChild(td);
+          }
+          table.appendChild(tr);
+        }
+      }
+
+      calendar(00, "2021");
+    </script>
+  </body>
+</html>
