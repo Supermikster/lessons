@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        function Chain(a, b) {
-            this.a = 1;
-            this.b = 5;
-            // return this.a == undefined ? this.b : this.a;
-        }
+      function A(a, b) {
+        this.a = 1;
+        this.b = 5;
+      }
 
-        Chain.prototype = function(b, c) {
-            this.b = 2;
-            this.c = 3;
-            
-            return c;
-        }
+      A.prototype.print = function () {
+        return this.a + this.b;
+      };
 
-        Chain.prototype = function(e) {
-            this.e = null;
-            // return this.e;
-        }
+      function B(a, b) {
+        A.call(this, a, b);
+      }
 
-        var c = new Chain(5);
-        console.log(c.c);
+      B.prototype = Object.create(A.prototype, {
+        print: {
+          value: function () {
+            return this.b;
+          },
+          enumerable: false,
+          configurable: false,
+          writable: true
+        },
+      });
 
+      var b = new B();
+      console.log(b.a);
+      console.log(b.print());
     </script>
-</body>
+  </body>
 </html>

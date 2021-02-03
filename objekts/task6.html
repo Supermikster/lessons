@@ -8,9 +8,13 @@
   <body>
     <script>
       var obj = {
-        method1() {},
+        method1() {
+          return this;
+        },
 
-        method2() {},
+        method2() {
+          return this;
+        },
 
         method3() {
           return "metod3";

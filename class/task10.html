@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // function Unit(x, y) {
+      //     this.x = x;
+      //     this.y = y;
+      // }
+
+      // function Fighter(x, y) {
+      //     Unit.call(this, x, y);
+      //     this._power = 100;
+      // }
+
+      // Object.defineProperty(Fighter.prototype, 'power', {
+      //     get: function() {
+      //         return this._power;
+      //     },
+      //     set: function(power) {
+      //         this._power = power;
+      //     }
+      // });
+
+      class Unit {
+        x = 0;
+        y = 0;
+
+        constructor(x, y) {
+          this.x = x;
+          this.y = y;
+        }
+      }
+
+      class Fighter extends Unit {
+        _power = 100;
+
+        get power() {
+          return this._power;
+        }
+
+        set power(power) {
+          this._power = power;
+        }
+
+        constructor(x, y) {
+          super(x, y);
+        }
+
+        toString() {
+            return `x = ${this.x}, y = ${this.y}`;
+        }
+      }
+
+      var fighter = new Fighter(1, 15);
+      fighter.power = 25;
+      console.log(fighter + '');
+    </script>
+  </body>
+</html>
