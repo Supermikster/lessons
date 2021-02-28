@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="stylesheet" href="dropDown.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="dropDown"></div>
+        </div>
+        <script
+            src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"
+        ></script>
+
+        <script>
+            $(document).ready(function () {
+                (function ($) {
+                    $.fn.dropDown = function (settings) {
+                        return $(this).each(function () {
+                            var dropDownContainer = $(this);
+                            dropDownContainer
+                                .html(function () {
+                                    return "<div class='dropBox-container'><div class='chosen'></div><div class='dropper'></div><div class='choises 1'>1</div><div class='choises 2'>2</div><div class='choises 3'>3</div></div>";
+                                });
+                            var dropBox = dropDownContainer
+                                .find(".dropBox-container")
+                                .first();
+                            var chosen = dropDownContainer
+                                .find(".chosen")
+                                .first();
+                            var dropper = dropDownContainer
+                                .find(".dropper")
+                                .first();
+                            var choises = dropDownContainer.find(".choises");
+                            var choise1 = dropDownContainer.find(".choises.1");
+                            var choise2 = dropDownContainer.find(".choises.2");
+                            var choise3 = dropDownContainer.find(".choises.3");
+                            chosen.text(settings.currentKey);
+                            choise1.text(settings.options.key1);
+                            choise2.text(settings.options.key2);
+                            choise3.text(settings.options.key3);
+                            dropper.on("mouseenter", function () {
+                                choises.css({
+                                    display: "inline-block",
+                                });
+                            });
+                            choises.on("click", function (e) {
+                                var currentChoise = $(e.target);
+                                chosen.text(currentChoise.text());
+                                choises.css({
+                                    display: "none",
+                                });
+                                settings.onChange(chosen.text());
+                            });
+                        });
+                    };
+                })(jQuery);
+
+                $(".dropDown").dropDown({
+                    options: {
+                        key1: "value1",
+                        key2: "value2",
+                        key3: "value3",
+                    },
+                    onChange: function (key) {
+                        console.log(key);
+                    },
+                    currentKey: "key2",
+                });
+            });
+        </script>
+    </body>
+</html>
